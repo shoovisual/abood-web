@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: "Barlow";
     src: url("../assets/fonts/Barlow-Black.woff2") format("woff2"), url("../assets/fonts/Barlow-Black.woff") format("woff");
     font-weight: 900;
@@ -140,7 +140,7 @@
     font-weight: 600;
     font-style: italic;
     font-display: swap;
-}
+} */
 
 /*--------------------------------------------------------------
 # General
@@ -422,15 +422,20 @@ a {
 }
 
 .navbar ul {
-    margin: 0;
+    margin: auto;
     padding: 0;
     display: flex;
     list-style: none;
     align-items: center;
+    margin-right: 15px;
 }
 
 .navbar-links li {
     position: relative;
+}
+
+.navbar-links {
+    display: none;
 }
 
 .navbar-links a,
@@ -438,12 +443,13 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 7px 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
     letter-spacing: 1px;
     font-size: 13px;
     font-weight: 600;
-    color: #0b2341;
-    margin: 0 10px;
+    color: var(--primary-color);
+    margin: 0 5px;
     text-transform: uppercase;
     white-space: nowrap;
     transition: 0.3s;
@@ -460,8 +466,10 @@ a {
 .navbar-links .active,
 .navbar-links .active:focus,
 .navbar-links li:hover > a {
-    color: var(--white-color);
-    background-color: var(--secondary-color);
+    /* color: var(--primary-color); */
+    background-color: #e9e9e9;
+    transition: 0.3s;
+    border: 0.5px solid #dfdfdf;
 }
 
 .navbar-nav .nav-link {
@@ -508,7 +516,8 @@ a {
 
 .navbar .dropdown ul a {
     padding: 10px 20px;
-    text-transform: none;
+    font-size: 13px;
+    text-transform: uppercase;
 }
 
 .navbar .dropdown ul a:hover,
