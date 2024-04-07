@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+        }
+
+        #successMessage {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+    <h1>Contact Form</h1>
+    <form id="myForm" action="form.php" onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <br>
+        <button type="submit">Submit</button>
+        <p id="successMessage"></p>
+    </form>
+    <script>
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const successMessage = document.getElementById('successMessage');
+
+            // Basic validation checks
+            if (name === '') {
+                alert('Please enter your name');
+                return false;
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Please enter a valid email address');
+                return false;
+            }
+
+            if (message === '') {
+                alert('Please enter your message');
+                return false;
+            }
+
+            // Submit form data (replace with your server-side script)
+            const formData = new FormData(document.getElementById('myForm'));
+            fetch('process.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.text())
+                .then(data => {
+                    successMessage.textContent = data;
+                    document.getElementById('myForm').reset();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    successMessage.textContent = 'An error occurred. Please try again.';
+                });
+
+            return false; // Prevent default form submission
+        }
+
+    </script>
+</body>
+
+</html>
