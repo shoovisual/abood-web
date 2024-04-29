@@ -1019,6 +1019,10 @@ section {
     line-height: 1;
 }
 
+.about-img img {
+    width: ;
+}
+
 .about .content p:last-child {
     margin-bottom: 0;
 }
@@ -1120,6 +1124,7 @@ section {
     padding: 25px;
     height: 100%;
     border: 1px solid #ebebeb;
+    border-bottom: 1px solid var(--primary-color);
     background-color: var(--off-white);
     cursor: pointer;
     transition: 0.3s;
@@ -1132,7 +1137,6 @@ section {
     /* color: #ffff; */
     transition: 0.3s;
 }
-
 .value-head {
     align-items: center;
 }
@@ -1157,6 +1161,14 @@ section {
 .nav-tabs .active {
     background-color: var(--secondary-color);
     transition: 0.3s ease-in-out;
+}
+
+.core-value-content .row {
+    margin: auto;
+}
+
+.value-ico img {
+    height: 40px;
 }
 
 /* SAP page */
@@ -1195,6 +1207,21 @@ section {
     background-color: var(--secondary-color);
     /* transition: 0.3s ease-in-out; */
     /* border-bottom: 2px solid var(--secondary-color); */
+}
+.industries-sec .row {
+    margin: auto;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+}
+.map-svg img {
+    width: 380px;
+    text-align: center;
+    padding: 20px;
+}
+
+.map-svg {
+    text-align: center;
 }
 
 .tab-content {
@@ -1739,10 +1766,11 @@ section {
     background-color: #fff;
     transition: 0.3s;
     margin-top: 20px;
-    padding: 30px 0;
+    padding: 30px 20px;
     box-shadow: 0px 0px 20px #7e7e7e1d;
+    position: relative;
 }
-
+/* 
 .industry-title:hover {
     background-color: var(--secondary-color);
     transition: 0.3s;
@@ -1751,13 +1779,14 @@ section {
 .industry-title:hover a {
     color: #fff;
     transition: 0.3s;
-}
+} */
 
 .industry-title a {
     font-size: 14px;
     padding: 0 20px;
     justify-content: space-between;
     font-weight: 600;
+    padding: 20px;
     text-transform: uppercase;
     color: var(--primary-color);
     transition: 0.3s;
@@ -1765,19 +1794,26 @@ section {
 }
 
 .industry-title:hover .btn-arrow svg {
-    width: 50px;
+    /* width: 50px; */
     transform: rotate(45deg);
     transition: 0.3s;
     transition: 0.5s;
 }
 
 .industry-title:hover .btn-arrow svg path {
-    fill: #fff;
+    /* fill: #fff; */
 }
 
 .btn-arrow svg {
     /* transform: rotate(45deg); */
     transition: 0.3s;
+    position: absolute;
+    right: 30px;
+    bottom: 40%;
+}
+
+.industry-ico img {
+    width: 60px;
 }
 
 /* Clients */
@@ -1794,6 +1830,18 @@ section {
     transition: 0.3s;
     opacity: 1;
     transform: scale(1.17);
+}
+
+@media (max-width: 860px) {
+    .industry-ico {
+        margin-bottom: 20px;
+    }
+    .industry-title {
+        text-align: center;
+    }
+    .btn-arrow svg {
+        display: none;
+    }
 }
 
 /*--------------------------------------------------------------
